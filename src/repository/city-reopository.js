@@ -1,4 +1,5 @@
 const { City } = require('../models/index');
+const {Op} =require("sequelize");
 
 class CityRepository {
 
@@ -30,7 +31,7 @@ class CityRepository {
 
     async updateCity(cityId, data) { // {name: "Prayagraj"}
         try {
-            
+
             // THE BELOW APPROACH ALSO WORKS BUT WILL NOT RETURN UPDATED OBJECTS
             // if  we are using pg sql then returning:trues ban be used else not
 
@@ -59,6 +60,27 @@ class CityRepository {
             throw {error};
         }
     }
+
+    async getAllCities(filter) {
+        try{
+            if(filter.name){
+                const cities=await City.findAll({
+                    where:{
+                        name:{
+                            [Op.startsWith]:filter.name
+                        }
+                    }  
+                });
+                return cities;
+            }
+            const cities = await City.findAll();
+            return cities;
+        }catch (error) {
+            console.log("Something went wrong in the repository layer");
+            throw {error};
+        }
+    }
+
 
 }
 
