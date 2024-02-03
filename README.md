@@ -35,3 +35,7 @@
 ### City -> id,name,created_at,updated_at
 ### Airport -> id,name,address,city_id,created_at,updated_at
   relationship ->
+
+npx sequelize model:generate --name Airport --attributes
+name:String,address:String,cityId:integer
+
