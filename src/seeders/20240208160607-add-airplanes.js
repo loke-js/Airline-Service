@@ -2,7 +2,7 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize){
     /**
      * Add seed commands here.
      *
@@ -13,31 +13,38 @@ module.exports = {
      * }], {});
      */
     await queryInterface.bulkInsert(
-      "Airports",
+      "Airplanes",
       [
         {
-          name: "Kempegowda International Airport",
-          cityId: 5,
+          modelNumber: "Boeing 737",
+          capacity: 300,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Mysuru  Airport",
-          cityId: 5,
+          modelNumber: "Airbus A320",
+          capacity: 350,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Mengaluru International Airport",
-          cityId: 5,
+          modelNumber: "Boeing 777",
+          capacity: 400,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Indira Gandhi International Airport",
-          cityId: 4,
+          modelNumber: "Boeing 747",
+          capacity: 200,
           createdAt: new Date(),
           updatedAt: new Date(),
+        },
+        {
+          modelNumber: "Airbus A330",
+          capacity:500,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+         
         },
       ],
       {}
