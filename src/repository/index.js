@@ -1,4 +1,4 @@
 module.exports ={
     CityRepository:require('./city-reopository'),
-    AirportRepository:require('./airport-repository')
+    // AirportRepository:require('./airport-repository')
 }

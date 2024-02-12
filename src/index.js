@@ -1,7 +1,7 @@
 const express = require("express");
 const { PORT } = require("./config/serverConfig");
 const ApiRoutes = require("./routes/index");
-const { City, Airport } = require("./models/index");
+const { City,Airplane } = require("./models/index");
 const db = require("./models/index");
 const CityRepository = require("./repository/city-reopository");
 const bodyParser = require("body-parser");
@@ -19,7 +19,7 @@ const setupAndStartServer = async () => {
 
     //SYNCHRONIZING DATABASE TO MATCH MODEL-----------------
 
-    if (process.env.SYNC_DB) db.sequelize.sync({ alter: true });
+    // if (process.env.SYNC_DB) db.sequelize.sync({ alter: true });
 
     // const airports=await City.findAll({
     //   where:{
@@ -48,6 +48,9 @@ const setupAndStartServer = async () => {
     //   name:'Jindal Vijaynagar Airport'
     // });
     // console.log(city,airports);
+    // await Airplane.create({
+    //   modelNumber:"Bombardier crj"
+    // });
   });
 };
 
