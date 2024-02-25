@@ -26,7 +26,7 @@ class FlightRepository {
     if(data.maxPrice){
         Object.assign(filter,{price:{[Op.lte]:data.maxPrice}});
         priceFilter.push({price:{[Op.lte]:data.maxPrice}});
-    }
+    } 
     Object.assign(filter,{[Op.and]:[{price:{[Op.lte]:7000}},{price:{[Op.gte]:4000}}]})
     console.log(filter);
     return filter;
